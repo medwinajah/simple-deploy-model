@@ -33,6 +33,42 @@ simple-deploy-model/
 
 ---
 
+## 🚀 Panduan Inisialisasi & Upload Pertama Kali ke GitHub (Dari Nol)
+
+Berikut adalah langkah-langkah lengkap dari awal yang digunakan untuk membuat repositori dan mengunggah proyek ini ke GitHub:
+
+### 1. Buat Repositori Baru di GitHub
+1. Masuk ke akun GitHub Anda dan buka: **[github.com/new](https://github.com/new)**.
+2. Isi **Repository name**: `simple-deploy-model`.
+3. Pilih opsi **Public**.
+4. **PENTING:** Jangan centang *"Add a README file"*, *"Add .gitignore"*, atau lisensi (karena file-file ini sudah kita siapkan di komputer lokal).
+5. Klik tombol hijau **"Create repository"**.
+
+### 2. Jalankan Perintah Git di Terminal Komputer Lokal
+Buka Terminal di dalam folder proyek Anda, lalu jalankan perintah berikut secara berurutan:
+
+```bash
+# 1. Inisialisasi git di folder lokal
+git init
+
+# 2. Masukkan semua file ke staging area
+git add .
+
+# 3. Buat commit pertama
+git commit -m "Initial commit: Streamlit ML deployment and Iris app"
+
+# 4. Pastikan branch utama bernama 'main'
+git branch -M main
+
+# 5. Hubungkan folder lokal ke repositori GitHub yang baru dibuat
+git remote add origin https://github.com/pompymandislian/simple-deploy-model.git
+
+# 6. Upload (push) seluruh file ke GitHub
+git push -u origin main
+```
+
+---
+
 ## 🌐 Cara Deploy ke Streamlit Community Cloud (Gratis & Online)
 
 Aplikasi ini dapat diakses secara publik melalui internet menggunakan layanan gratis **Streamlit Community Cloud**:
@@ -51,7 +87,7 @@ Aplikasi ini dapat diakses secara publik melalui internet menggunakan layanan gr
 
 ---
 
-## ⚡ Panduan Menjalankan di Lokal (Step-by-Step)
+## ⚡ Panduan Menjalankan di Komputer Lokal
 
 Jika ingin menjalankan aplikasi di komputer lokal:
 
@@ -103,18 +139,21 @@ python train_model.py
 
 ---
 
-## 📤 Cara Update & Push Perubahan ke GitHub
+## 🔄 Cara Update & Push Perubahan Selanjutnya ke GitHub
 
-Jika Anda mengedit kode dan ingin mengunggah pembaruan ke GitHub:
+Jika sewaktu-waktu Anda mengedit kode atau menambahkan fitur baru dan ingin memperbarui repositori GitHub:
 
 ```bash
-# 1. Tambahkan file yang diperbarui
+# 1. Cek file yang berubah (opsional)
+git status
+
+# 2. Tambahkan semua file yang diedit
 git add .
 
-# 2. Buat pesan commit
-git commit -m "Update: panduan deployment Streamlit Cloud di README"
+# 3. Buat catatan commit
+git commit -m "Deskripsi perubahan yang Anda buat"
 
-# 3. Push ke GitHub (Streamlit Cloud akan otomatis update/re-deploy)
+# 4. Push ke GitHub (Streamlit Cloud akan otomatis mendeteksi dan re-deploy)
 git push origin main
 ```
 
