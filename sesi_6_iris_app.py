@@ -182,7 +182,7 @@ input_features = np.array([[sepal_length, sepal_width, petal_length, petal_width
 # Display input as dataframe
 input_df = pd.DataFrame(input_features, columns=feature_names)
 st.write("**Input yang akan diprediksi:**")
-st.dataframe(input_df, width="stretch")
+st.dataframe(input_df, use_container_width=True)
 
 st.markdown("---")
 
@@ -218,7 +218,7 @@ if st.button("🚀 Predict Species", type="primary"):
                 "Probability": [f"{p * 100:.1f}%" for p in prediction_proba],
             }
         )
-        st.dataframe(prob_df, width="stretch")
+        st.dataframe(prob_df, use_container_width=True)
 
         # Visual: bar chart of probabilities
         st.bar_chart(
@@ -237,7 +237,7 @@ with st.expander("📊 Lihat Sample Data Iris"):
     iris = load_iris(as_frame=True)
     sample = iris.frame.sample(10).copy()
     sample["species"] = sample["target"].map(lambda i: iris.target_names[i])
-    st.dataframe(sample[feature_names + ["species"]], width="stretch")
+    st.dataframe(sample[feature_names + ["species"]], use_container_width=True)
 
 # ============================================================================
 # FOOTER
