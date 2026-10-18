@@ -7,7 +7,7 @@
 
 Proyek ini mendemonstrasikan cara membuat dan mendeploy aplikasi Machine Learning interaktif berbasis web menggunakan **Streamlit**.
 
-Repository ini memiliki 2 aplikasi utama:
+Repository ini memiliki 2 aplikasi:
 1. **🌸 Iris Species Predictor (`sesi_6_iris_app.py`)**: Aplikasi prediksi spesies bunga Iris secara *real-time* dengan multi-model selection (Logistic Regression, Decision Tree, Random Forest, SVM), confidence score, dan chart probabilitas.
 2. **🚀 Streamlit Basics (`sesi_6_streamlit_basics.py`)**: Panduan dan demo interaktif berbagai komponen UI dasar Streamlit (widget, formulir, plot, metrik, dan layout kolom).
 
@@ -21,7 +21,7 @@ simple-deploy-model/
 ├── requirements.txt            # Daftar dependensi library
 ├── .gitignore                  # Filter file cache & lingkungan virtual
 ├── train_model.py              # Script otomatis latih & simpan model ML
-├── sesi_6_iris_app.py          # Aplikasi web prediksi bunga Iris
+├── sesi_6_iris_app.py          # Aplikasi web prediksi bunga Iris (Production App)
 ├── sesi_6_streamlit_basics.py  # Aplikasi web demo dasar-dasar Streamlit
 ├── iris_feature_names.txt      # Metadata nama fitur input
 ├── iris_target_names.txt       # Metadata nama target label
@@ -33,9 +33,27 @@ simple-deploy-model/
 
 ---
 
-## ⚡ Panduan Cepat (Step-by-Step)
+## 🌐 Cara Deploy ke Streamlit Community Cloud (Gratis & Online)
 
-Ikuti langkah-langkah di bawah ini untuk menjalankan proyek di komputer lokal:
+Aplikasi ini dapat diakses secara publik melalui internet menggunakan layanan gratis **Streamlit Community Cloud**:
+
+### Langkah-Langkah Deploy:
+1. Kunjungi **[share.streamlit.io](https://share.streamlit.io/)** dan login menggunakan akun GitHub Anda (**@pompymandislian**).
+2. Klik tombol **"Create app"** atau **"New app"**.
+3. Pilih opsi **"I already have an app"**, lalu isi formulir deployment:
+   - **Repository:** `pompymandislian/simple-deploy-model`
+   - **Branch:** `main`
+   - **Main file path:** `sesi_6_iris_app.py`
+   - **App URL (Opsional):** Buat custom URL jika diinginkan (misal: `https://simple-deploy-model-pompy.streamlit.app`)
+4. Klik tombol **"Deploy!"**.
+5. Tunggu 1–2 menit saat Streamlit menginstall dependensi dari `requirements.txt`.
+6. 🎉 **Aplikasi Anda sekarang sudah live di internet dan siap dibagikan!**
+
+---
+
+## ⚡ Panduan Menjalankan di Lokal (Step-by-Step)
+
+Jika ingin menjalankan aplikasi di komputer lokal:
 
 ### Step 1: Clone Repository
 ```bash
@@ -43,7 +61,7 @@ git clone https://github.com/pompymandislian/simple-deploy-model.git
 cd simple-deploy-model
 ```
 
-### Step 2: Buat & Aktifkan Virtual Environment (Opsional tapi disarankan)
+### Step 2: Buat & Aktifkan Virtual Environment (Disarankan)
 - **macOS / Linux:**
   ```bash
   python3 -m venv venv
@@ -60,12 +78,10 @@ cd simple-deploy-model
 pip install -r requirements.txt
 ```
 
-### Step 4: Siapkan Model ML & Metadata
-Jalankan script ini satu kali untuk melatih dan menghasilkan file model `.pkl` serta metadata `.txt`:
+### Step 4: Siapkan Model ML & Metadata (Jika belum ada)
 ```bash
 python train_model.py
 ```
-> *Jika file `.pkl` sudah ada di repositori, langkah ini opsional.*
 
 ### Step 5: Jalankan Aplikasi Streamlit
 
@@ -87,26 +103,19 @@ python train_model.py
 
 ---
 
-## 📤 Cara Push Update ke GitHub
+## 📤 Cara Update & Push Perubahan ke GitHub
 
-Jika Anda melakukan perubahan dan ingin memperbarui repositori GitHub:
+Jika Anda mengedit kode dan ingin mengunggah pembaruan ke GitHub:
 
 ```bash
-# 1. Cek status perubahan file
-git status
-
-# 2. Tambahkan semua file yang berubah
+# 1. Tambahkan file yang diperbarui
 git add .
 
-# 3. Buat pesan commit
-git commit -m "Update: Streamlit apps and models"
+# 2. Buat pesan commit
+git commit -m "Update: panduan deployment Streamlit Cloud di README"
 
-# 4. Pastikan remote sudah terhubung ke repository Anda
-git remote set-url origin https://github.com/pompymandislian/simple-deploy-model.git
-
-# 5. Push ke GitHub
-git branch -M main
-git push -u origin main
+# 3. Push ke GitHub (Streamlit Cloud akan otomatis update/re-deploy)
+git push origin main
 ```
 
 ---
